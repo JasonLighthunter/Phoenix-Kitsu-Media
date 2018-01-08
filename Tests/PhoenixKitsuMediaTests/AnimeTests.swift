@@ -1,6 +1,5 @@
 import XCTest
 @testable import PhoenixKitsuMedia
-import PhoenixKitsuCore
 
 class AnimeTests: XCTestCase {
   let decoder = JSONDecoder()
