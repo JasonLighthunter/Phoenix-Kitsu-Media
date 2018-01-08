@@ -1,6 +1,6 @@
 import PhoenixKitsuCore
 
-public class Manga: KitsuObject {
+public class Manga: KitsuMediaObject {
   public static var requestURLString = "manga"
   
   public let objectID: String
