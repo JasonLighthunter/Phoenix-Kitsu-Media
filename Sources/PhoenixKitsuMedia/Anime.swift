@@ -14,6 +14,29 @@ public class Anime: KitsuObject {
     case links
     case attributes
   }
+  
+  public func getTitleWith(identifier: TitleLanguageIdentifierEnum) -> String {
+    var title: String? = ""
+    
+    switch identifier {
+    case .americanEnglish:
+      title = self.attributes?.titles.americanEnglish
+    case .english:
+      title = self.attributes?.titles.english
+    case .romaji:
+      title = self.attributes?.titles.romaji
+    case .kanji:
+      title = self.attributes?.titles.kanji
+    case .canonical:
+      title = self.attributes?.canonicalTitle
+    }
+    
+    guard let returnValue = title else {
+      guard let returnValue = self.attributes?.canonicalTitle else { return (self.attributes?.slug)! }
+      return returnValue
+    }
+    return returnValue
+  }
 }
 
 public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
