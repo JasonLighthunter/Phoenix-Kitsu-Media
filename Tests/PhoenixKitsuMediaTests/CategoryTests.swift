@@ -59,7 +59,6 @@ class CategoryTests: XCTestCase {
       "createdAt": "2017-05-31T06:38:29.320Z",
       "updatedAt": "2017-05-31T06:39:36.788Z",
       "title": "All Girls School",
-      "totalMediaCount": 72,
       "slug": "all-girls-school",
       "nsfw": false,
       "childCount": 0
@@ -77,7 +76,7 @@ class CategoryTests: XCTestCase {
       "updatedAt": "2017-05-31T06:39:36.788Z",
       "title": "All Girls School",
       "description": nil,
-      "totalMediaCount": 72,
+      "totalMediaCount": nil,
       "slug": "all-girls-school",
       "nsfw": false,
       "childCount": 0,
@@ -240,7 +239,7 @@ class CategoryTests: XCTestCase {
     XCTAssertEqual(categoryAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(categoryAttributes?.title, "All Girls School")
     XCTAssertNil(categoryAttributes?.description)
-    XCTAssertEqual(categoryAttributes?.totalMediaCount, 72)
+    XCTAssertNil(categoryAttributes?.totalMediaCount)
     XCTAssertEqual(categoryAttributes?.slug, "all-girls-school")
     XCTAssertFalse((categoryAttributes?.isNSFW)!)
     XCTAssertEqual(categoryAttributes?.childCount, 0)
@@ -271,7 +270,7 @@ class CategoryTests: XCTestCase {
     XCTAssertEqual(categoryAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(categoryAttributes?.title, "All Girls School")
     XCTAssertNil(categoryAttributes?.description)
-    XCTAssertEqual(categoryAttributes?.totalMediaCount, 72)
+    XCTAssertNil(categoryAttributes?.totalMediaCount)
     XCTAssertEqual(categoryAttributes?.slug, "all-girls-school")
     XCTAssertFalse((categoryAttributes?.isNSFW)!)
     XCTAssertEqual(categoryAttributes?.childCount, 0)
