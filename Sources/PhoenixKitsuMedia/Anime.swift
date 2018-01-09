@@ -47,7 +47,7 @@ public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
   public let titles: Titles
   public let canonicalTitle: String
   public let abbreviatedTitles: [String]?
-  public let averageRating: String
+  public let averageRating: String?
   public let ratingFrequencies: [String : String]
   public let userCount: Int
   public let favoritesCount: Int
@@ -55,7 +55,7 @@ public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
   public let endDate: String?
   public let popularityRank: Int?
   public let ratingRank: Int?
-  public let ageRating: AgeRatingEnum
+  public let ageRating: AgeRatingEnum?
   public let ageRatingGuide: String?
   public let subtype: AnimeTypeEnum
   public let status: ReleaseStatusEnum

@@ -110,7 +110,6 @@ class AnimeTests: XCTestCase {
       "ratingFrequencies": [:],
       "userCount": 504,
       "favoritesCount": 2,
-      "ageRating": "PG",
       "subtype": "OVA",
       "status": "finished",
       "nsfw": false
@@ -142,7 +141,7 @@ class AnimeTests: XCTestCase {
       "endDate": nil,
       "popularityRank": nil,
       "ratingRank": nil,
-      "ageRating": "PG",
+      "ageRating": nil,
       "ageRatingGuide": nil,
       "subtype": "OVA",
       "status": "finished",
@@ -440,7 +439,7 @@ class AnimeTests: XCTestCase {
 
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertNil(animeAttributes?.abbreviatedTitles)
-    XCTAssertEqual(animeAttributes?.averageRating, "67.0")
+    XCTAssertNil(animeAttributes?.averageRatings)
     XCTAssertEqual((animeAttributes?.ratingFrequencies)!, [:])
     XCTAssertEqual(animeAttributes?.userCount, 504)
     XCTAssertEqual(animeAttributes?.favoritesCount, 2)
@@ -448,7 +447,7 @@ class AnimeTests: XCTestCase {
     XCTAssertNil(animeAttributes?.endDate)
     XCTAssertNil(animeAttributes?.popularityRank)
     XCTAssertNil(animeAttributes?.ratingRank)
-    XCTAssertEqual(animeAttributes?.ageRating, AgeRatingEnum.parentalGuidance)
+    XCTAssertNil(animeAttributes?.ageRating)
     XCTAssertNil(animeAttributes?.ageRatingGuide)
     XCTAssertEqual(animeAttributes?.subtype, AnimeTypeEnum.OVA)
     XCTAssertEqual(animeAttributes?.status, ReleaseStatusEnum.finished)
@@ -490,7 +489,7 @@ class AnimeTests: XCTestCase {
 
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertNil(animeAttributes?.abbreviatedTitles)
-    XCTAssertEqual(animeAttributes?.averageRating, "67.0")
+    XCTAssertNil(animeAttributes?.averageRating)
     XCTAssertEqual((animeAttributes?.ratingFrequencies)!, [:])
     XCTAssertEqual(animeAttributes?.userCount, 504)
     XCTAssertEqual(animeAttributes?.favoritesCount, 2)
@@ -498,7 +497,7 @@ class AnimeTests: XCTestCase {
     XCTAssertNil(animeAttributes?.endDate)
     XCTAssertNil(animeAttributes?.popularityRank)
     XCTAssertNil(animeAttributes?.ratingRank)
-    XCTAssertEqual(animeAttributes?.ageRating, AgeRatingEnum.parentalGuidance)
+    XCTAssertNil(animeAttributes?.ageRating)
     XCTAssertNil(animeAttributes?.ageRatingGuide)
     XCTAssertEqual(animeAttributes?.subtype, AnimeTypeEnum.OVA)
     XCTAssertEqual(animeAttributes?.status, ReleaseStatusEnum.finished)
