@@ -46,7 +46,7 @@ public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
   public let synopsis: String
   public let titles: Titles
   public let canonicalTitle: String
-  public let abbreviatedTitles: [String]
+  public let abbreviatedTitles: [String]?
   public let averageRating: String
   public let ratingFrequencies: [String : String]
   public let userCount: Int
