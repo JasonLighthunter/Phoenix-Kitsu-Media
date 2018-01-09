@@ -96,3 +96,4 @@ public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
     case isNSFW = "nsfw"
   }
 }
+

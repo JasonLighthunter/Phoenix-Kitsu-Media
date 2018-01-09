@@ -106,7 +106,6 @@ class AnimeTests: XCTestCase {
       "synopsis": "testSynopsis",
       "titles": [:],
       "canonicalTitle": "Yurumates",
-      "averageRating": "67.0",
       "ratingFrequencies": [:],
       "userCount": 504,
       "favoritesCount": 2,
@@ -133,7 +132,7 @@ class AnimeTests: XCTestCase {
       ],
       "canonicalTitle": "Yurumates",
       "abbreviatedTitles": nil,
-      "averageRating": "67.0",
+      "averageRating": nil,
       "ratingFrequencies": [:],
       "userCount": 504,
       "favoritesCount": 2,
@@ -439,7 +438,7 @@ class AnimeTests: XCTestCase {
 
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertNil(animeAttributes?.abbreviatedTitles)
-    XCTAssertNil(animeAttributes?.averageRatings)
+    XCTAssertNil(animeAttributes?.averageRating)
     XCTAssertEqual((animeAttributes?.ratingFrequencies)!, [:])
     XCTAssertEqual(animeAttributes?.userCount, 504)
     XCTAssertEqual(animeAttributes?.favoritesCount, 2)
@@ -519,7 +518,6 @@ class AnimeTests: XCTestCase {
     } else {
       anime = nil
     }
-    animeAttributes = anime?.attributes
     
     XCTAssertNil(anime)
   }
