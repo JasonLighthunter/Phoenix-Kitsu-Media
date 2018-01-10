@@ -1,7 +1,7 @@
 import PhoenixKitsuCore
 
 public protocol KitsuMediaObjectAttributes: KitsuObjectAttributesWithTimestamp {
-//  var slug: String? {get}
+  var slug: String? {get}
   var synopsis: String? {get}
 //  var coverImageTopOffset: Int {get}
 //  var titles: Titles {get}
