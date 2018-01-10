@@ -110,15 +110,12 @@ class MangaTests: XCTestCase {
         "en_jp": "Guardian Dog"
       ],
       "canonicalTitle": "Guardian Dog",
-      "abbreviatedTitles": ["abbreviated1"],
-      "averageRating": "34.65",
       "ratingFrequencies": [
         "2": "0",
         "3": "0"
       ],
       "userCount": 47,
       "favoritesCount": 1,
-      "ageRating": "PG",
       "subtype": "manga",
       "status": "current"
     ]
@@ -140,8 +137,8 @@ class MangaTests: XCTestCase {
         "en_jp": "Guardian Dog"
       ],
       "canonicalTitle": "Guardian Dog",
-      "abbreviatedTitles": ["abbreviated1"],
-      "averageRating": "34.65",
+      "abbreviatedTitles": nil,
+      "averageRating": nil,
       "ratingFrequencies": [
         "2": "0",
         "3": "0"
@@ -152,7 +149,7 @@ class MangaTests: XCTestCase {
       "endDate": nil,
       "popularityRank": nil,
       "ratingRank": nil,
-      "ageRating": "PG",
+      "ageRating": nil,
       "ageRatingGuide": nil,
       "subtype": "manga",
       "status": "current",
@@ -440,8 +437,8 @@ class MangaTests: XCTestCase {
     XCTAssertNotNil(mangaAttributes?.titles)
 
     XCTAssertEqual(mangaAttributes?.canonicalTitle, "Guardian Dog")
-    XCTAssertEqual((mangaAttributes?.abbreviatedTitles)!, ["abbreviated1"])
-    XCTAssertEqual(mangaAttributes?.averageRating, "34.65")
+    XCTAssertNil(mangaAttributes?.abbreviatedTitles)
+    XCTAssertNil(mangaAttributes?.averageRating)
     XCTAssertEqual((mangaAttributes?.ratingFrequencies)!, ["2":"0", "3":"0"])
     XCTAssertEqual(mangaAttributes?.userCount, 47)
     XCTAssertEqual(mangaAttributes?.favoritesCount, 1)
@@ -449,7 +446,7 @@ class MangaTests: XCTestCase {
     XCTAssertNil(mangaAttributes?.endDate)
     XCTAssertNil(mangaAttributes?.popularityRank)
     XCTAssertNil(mangaAttributes?.ratingRank)
-    XCTAssertEqual(mangaAttributes?.ageRating, AgeRatingEnum.parentalGuidance)
+    XCTAssertNil(mangaAttributes?.ageRating)
     XCTAssertNil(mangaAttributes?.ageRatingGuide)
     XCTAssertEqual(mangaAttributes?.subtype, MangaTypeEnum.manga)
     XCTAssertEqual(mangaAttributes?.status, ReleaseStatusEnum.current)
@@ -489,8 +486,8 @@ class MangaTests: XCTestCase {
     XCTAssertNotNil(mangaAttributes?.titles)
     
     XCTAssertEqual(mangaAttributes?.canonicalTitle, "Guardian Dog")
-    XCTAssertEqual((mangaAttributes?.abbreviatedTitles)!, ["abbreviated1"])
-    XCTAssertEqual(mangaAttributes?.averageRating, "34.65")
+    XCTAssertNil(mangaAttributes?.abbreviatedTitles)
+    XCTAssertNil(mangaAttributes?.averageRating)
     XCTAssertEqual((mangaAttributes?.ratingFrequencies)!, ["2":"0", "3":"0"])
     XCTAssertEqual(mangaAttributes?.userCount, 47)
     XCTAssertEqual(mangaAttributes?.favoritesCount, 1)
@@ -498,7 +495,7 @@ class MangaTests: XCTestCase {
     XCTAssertNil(mangaAttributes?.endDate)
     XCTAssertNil(mangaAttributes?.popularityRank)
     XCTAssertNil(mangaAttributes?.ratingRank)
-    XCTAssertEqual(mangaAttributes?.ageRating, AgeRatingEnum.parentalGuidance)
+    XCTAssertNil(mangaAttributes?.ageRating)
     XCTAssertNil(mangaAttributes?.ageRatingGuide)
     XCTAssertEqual(mangaAttributes?.subtype, MangaTypeEnum.manga)
     XCTAssertEqual(mangaAttributes?.status, ReleaseStatusEnum.current)
