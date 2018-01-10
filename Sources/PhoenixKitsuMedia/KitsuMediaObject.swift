@@ -1,6 +1,13 @@
 import PhoenixKitsuCore
+import Requestable
 
 public protocol KitsuMediaObject: KitsuObject {
-//  var relationships: Any? {get}
+  associatedtype KitsuMediaObjectAttributesType: KitsuMediaObjectAttributes
+
+  var objectID: String {get}
+  var type: String {get}
+  var links: Links {get}
+  var attributes: KitsuMediaObjectAttributesType? {get}
+  
   func getTitleWith(identifier: TitleLanguageIdentifierEnum) -> String
 }

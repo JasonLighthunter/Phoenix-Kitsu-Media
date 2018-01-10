@@ -39,7 +39,7 @@ public class Manga: KitsuMediaObject {
   }
 }
 
-public class MangaAttributes: KitsuObjectAttributesWithTimestamp {
+public class MangaAttributes: KitsuMediaObjectAttributes {
   public let createdAt: String
   public let updatedAt: String
   public let slug: String?

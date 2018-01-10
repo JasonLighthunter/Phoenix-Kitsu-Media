@@ -1,6 +1,6 @@
 import PhoenixKitsuCore
 
-public class Anime: KitsuMediaObject {
+public class Anime: KitsuMediaObject {  
   public static var requestURLString = "anime"
   
   public let objectID: String
@@ -39,11 +39,11 @@ public class Anime: KitsuMediaObject {
   }
 }
 
-public class AnimeAttributes: KitsuObjectAttributesWithTimestamp {
+public class AnimeAttributes: KitsuMediaObjectAttributes {
   public let createdAt: String
   public let updatedAt: String
   public let slug: String?
-  public let synopsis: String
+  public let synopsis: String?
   public let titles: Titles
   public let canonicalTitle: String
   public let abbreviatedTitles: [String]?

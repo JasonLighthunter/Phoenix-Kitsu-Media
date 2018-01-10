@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import PhoenixKitsuMedia
-
+import PhoenixKitsuCore
 
 class Special: XCTestCase {
   var string = ""
@@ -3535,13 +3535,22 @@ class Special: XCTestCase {
   func test() {
     
     
-    prepOne()
-    prepGood()
-    do {
-      try JSONDecoder().decode([Anime].self, from: stringGood.data(using: String.Encoding.utf8)!)
-    } catch {
-      print(error.localizedDescription)
-    }
+//    prepOne()
+//    prepGood()
+//    do {
+//      try JSONDecoder().decode([Anime].self, from: stringGood.data(using: String.Encoding.utf8)!)
+//    } catch {
+//      print(error.localizedDescription)
+//    }
+    
+      PhoenixCore.getCollection(withFilters: nil) { (res: SearchResult<Anime>?) in
+        XCTAssertNotNil(res)
+        
+        exp.fulfill()
+      }
+      waitForExpectations(timeout: 5, handler: nil);
+    
+    
 //    let animeAttributes = anime?.attributes
     
 //    XCTAssertNotNil(anime)
