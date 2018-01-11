@@ -1,18 +1,19 @@
 import PhoenixKitsuCore
+import Requestable
 
-public class MediaRelationship: KitsuObject {
+public class MediaRelationship: KitsuObject, Requestable {
   public static var requestURLString = "Media-relationships"
   
-  public let objectID: String
-  public let type: String
-  public let links: Links
   public let attributes: MediaRelationshipAttributes?
   
   private enum CodingKeys: String, CodingKey {
-    case objectID = "id"
-    case type
-    case links
     case attributes
+  }
+  
+  public required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    attributes = try? container.decode(MediaRelationshipAttributes.self, forKey: .attributes)
+    try super.init(from: decoder)
   }
 }
 

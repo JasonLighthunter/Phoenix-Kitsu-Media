@@ -1,18 +1,19 @@
 import PhoenixKitsuCore
+import Requestable
 
-public class Anime: KitsuMediaObject {
+public class Anime: KitsuObject, Requestable {
   public static var requestURLString = "anime"
   
-  public let objectID: String
-  public let type: String
-  public let links: Links
   public let attributes: AnimeAttributes?
   
   private enum CodingKeys: String, CodingKey {
-    case objectID = "id"
-    case type
-    case links
     case attributes
+  }
+  
+  public required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    attributes = try? container.decode(AnimeAttributes.self, forKey: .attributes)
+    try super.init(from: decoder)
   }
 }
 

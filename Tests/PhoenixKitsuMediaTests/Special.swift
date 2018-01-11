@@ -3543,12 +3543,12 @@ class Special: XCTestCase {
 //      print(error.localizedDescription)
 //    }
     
-      PhoenixCore.getCollection(withFilters: nil) { (res: SearchResult<Anime>?) in
-        XCTAssertNotNil(res)
-        
-        exp.fulfill()
-      }
-      waitForExpectations(timeout: 5, handler: nil);
+//      PhoenixCore.getCollection(withFilters: nil) { (res: SearchResult<Anime>?) in
+//        XCTAssertNotNil(res)
+//        
+//        exp.fulfill()
+//      }
+//      waitForExpectations(timeout: 5, handler: nil);
     
     
 //    let animeAttributes = anime?.attributes

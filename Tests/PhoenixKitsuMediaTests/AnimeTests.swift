@@ -474,7 +474,7 @@ class AnimeTests: XCTestCase {
     
     XCTAssertEqual(anime?.objectID, "4")
     XCTAssertEqual(anime?.type, "anime")
-    
+
     XCTAssertNotNil(anime?.links)
     
     XCTAssertNotNil(animeAttributes)
