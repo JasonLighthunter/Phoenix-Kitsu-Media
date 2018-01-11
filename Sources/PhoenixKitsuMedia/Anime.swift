@@ -1,6 +1,6 @@
 import PhoenixKitsuCore
 
-public class Anime: KitsuMediaObject {  
+public class Anime: KitsuMediaObject {
   public static var requestURLString = "anime"
   
   public let objectID: String
@@ -13,29 +13,6 @@ public class Anime: KitsuMediaObject {
     case type
     case links
     case attributes
-  }
-  
-  public func getTitleWith(identifier: TitleLanguageIdentifierEnum) -> String {
-    var title: String? = ""
-    
-    switch identifier {
-    case .americanEnglish:
-      title = self.attributes?.titles.americanEnglish
-    case .english:
-      title = self.attributes?.titles.english
-    case .romaji:
-      title = self.attributes?.titles.romaji
-    case .kanji:
-      title = self.attributes?.titles.kanji
-    case .canonical:
-      title = self.attributes?.canonicalTitle
-    }
-    
-    guard let returnValue = title else {
-      guard let returnValue = self.attributes?.canonicalTitle else { return (self.attributes?.slug)! }
-      return returnValue
-    }
-    return returnValue
   }
 }
 

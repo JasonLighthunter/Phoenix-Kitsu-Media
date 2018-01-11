@@ -3,9 +3,8 @@ import PhoenixKitsuCore
 public protocol KitsuMediaObjectAttributes: KitsuObjectAttributesWithTimestamp {
   var slug: String? {get}
   var synopsis: String? {get}
-//  var coverImageTopOffset: Int {get}
-//  var titles: Titles {get}
-//  var canonicalTitle: String {get}
+  var titles: Titles {get}
+  var canonicalTitle: String {get}
 //  var abbreviatedTitles: [String?]? {get}
 //  var averageRating: String? {get}
 //  var ratingFrequencies: KitsuRatingFrequencies {get}
