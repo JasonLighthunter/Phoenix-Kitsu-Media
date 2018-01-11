@@ -1,7 +1,7 @@
 import PhoenixKitsuCore
 import Requestable
 
-public class Anime: KitsuObject<AnimeAttributes>, Requestable {
+public class Anime: KitsuMediaObject<AnimeAttributes>, Requestable {
   public static var requestURLString = "anime"
 }
 

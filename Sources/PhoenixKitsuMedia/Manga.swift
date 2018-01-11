@@ -1,7 +1,7 @@
 import PhoenixKitsuCore
 import Requestable
 
-public class Manga: KitsuObject<MangaAttributes>, HasMediaAttributes, Requestable {
+public class Manga: KitsuMediaObject<MangaAttributes>, Requestable {
   public static let requestURLString = "manga"
 }
 

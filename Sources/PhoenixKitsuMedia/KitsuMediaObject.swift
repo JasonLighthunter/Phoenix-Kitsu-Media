@@ -31,3 +31,5 @@ extension HasMediaAttributes {
     return returnValue
   }
 }
+
+public class KitsuMediaObject<T: KitsuMediaObjectAttributes>: KitsuObject<T> {}
