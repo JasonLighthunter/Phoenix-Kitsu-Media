@@ -253,7 +253,14 @@ class EpisodeTests: XCTestCase {
     }
     episodeAttributes = episode?.attributes
     
-    XCTAssertNil(episode)
+    XCTAssertNotNil(episode)
+    
+    XCTAssertEqual(episode?.objectID, "6")
+    XCTAssertEqual(episode?.type, "episodes")
+    
+    XCTAssertNotNil(episode?.links)
+    
+    XCTAssertNil(episodeAttributes)
   }
   
   func testEpisodeInvalidNilData() {
@@ -265,8 +272,16 @@ class EpisodeTests: XCTestCase {
     } else {
       episode = nil
     }
+    episodeAttributes = episode?.attributes
     
-    XCTAssertNil(episode)
+    XCTAssertNotNil(episode)
+    
+    XCTAssertEqual(episode?.objectID, "6")
+    XCTAssertEqual(episode?.type, "episodes")
+    
+    XCTAssertNotNil(episode?.links)
+    
+    XCTAssertNil(episodeAttributes)
   }
 }
 

@@ -177,7 +177,14 @@ class StreamerTests: XCTestCase {
     }
     streamerAttributes = streamer?.attributes
     
-    XCTAssertNil(streamer)
+    XCTAssertNotNil(streamer)
+    
+    XCTAssertEqual(streamer?.objectID, "6")
+    XCTAssertEqual(streamer?.type, "streamers")
+    
+    XCTAssertNotNil(streamer?.links)
+    
+    XCTAssertNil(streamerAttributes)
   }
   
   func testStreamerInvalidNilData() {
@@ -189,8 +196,16 @@ class StreamerTests: XCTestCase {
     } else {
       streamer = nil
     }
+    streamerAttributes = streamer?.attributes
     
-    XCTAssertNil(streamer)
+    XCTAssertNotNil(streamer)
+    
+    XCTAssertEqual(streamer?.objectID, "6")
+    XCTAssertEqual(streamer?.type, "streamers")
+    
+    XCTAssertNotNil(streamer?.links)
+    
+    XCTAssertNil(streamerAttributes)
   }
 }
 

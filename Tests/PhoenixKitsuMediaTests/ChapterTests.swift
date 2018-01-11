@@ -249,7 +249,14 @@ class ChapterTests: XCTestCase {
     }
     chapterAttributes = chapter?.attributes
     
-    XCTAssertNil(chapter)
+    XCTAssertNotNil(chapter)
+    
+    XCTAssertEqual(chapter?.objectID, "6")
+    XCTAssertEqual(chapter?.type, "chapters")
+    
+    XCTAssertNotNil(chapter?.links)
+    
+    XCTAssertNil(chapterAttributes)
   }
   
   func testChapterInvalidNilData() {
@@ -261,8 +268,16 @@ class ChapterTests: XCTestCase {
     } else {
       chapter = nil
     }
+    chapterAttributes = chapter?.attributes
     
-    XCTAssertNil(chapter)
+    XCTAssertNotNil(chapter)
+    
+    XCTAssertEqual(chapter?.objectID, "6")
+    XCTAssertEqual(chapter?.type, "chapters")
+    
+    XCTAssertNotNil(chapter?.links)
+    
+    XCTAssertNil(chapterAttributes)
   }
 }
 

@@ -170,7 +170,14 @@ class MappingTests: XCTestCase {
     }
     mappingAttributes = mapping?.attributes
     
-    XCTAssertNil(mapping)
+    XCTAssertNotNil(mapping)
+    
+    XCTAssertEqual(mapping?.objectID, "6")
+    XCTAssertEqual(mapping?.type, "mappings")
+    
+    XCTAssertNotNil(mapping?.links)
+    
+    XCTAssertNil(mappingAttributes)
   }
   
   func testMappingInvalidNilData() {
@@ -182,8 +189,16 @@ class MappingTests: XCTestCase {
     } else {
       mapping = nil
     }
+    mappingAttributes = mapping?.attributes
     
-    XCTAssertNil(mapping)
+    XCTAssertNotNil(mapping)
+    
+    XCTAssertEqual(mapping?.objectID, "6")
+    XCTAssertEqual(mapping?.type, "mappings")
+    
+    XCTAssertNotNil(mapping?.links)
+    
+    XCTAssertNil(mappingAttributes)
   }
 }
 

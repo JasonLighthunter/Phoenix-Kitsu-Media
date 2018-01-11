@@ -162,7 +162,14 @@ class MediaRelationshipTests: XCTestCase {
     }
     mediaRelationshipAttributes = mediaRelationship?.attributes
     
-    XCTAssertNil(mediaRelationship)
+    XCTAssertNotNil(mediaRelationship)
+    
+    XCTAssertEqual(mediaRelationship?.objectID, "6")
+    XCTAssertEqual(mediaRelationship?.type, "mediaRelationships")
+    
+    XCTAssertNotNil(mediaRelationship?.links)
+    
+    XCTAssertNil(mediaRelationshipAttributes)
   }
   
   func testMediaRelationshipInvalidNilData() {
@@ -174,8 +181,16 @@ class MediaRelationshipTests: XCTestCase {
     } else {
       mediaRelationship = nil
     }
+    mediaRelationshipAttributes = mediaRelationship?.attributes
     
-    XCTAssertNil(mediaRelationship)
+    XCTAssertNotNil(mediaRelationship)
+    
+    XCTAssertEqual(mediaRelationship?.objectID, "6")
+    XCTAssertEqual(mediaRelationship?.type, "mediaRelationships")
+    
+    XCTAssertNotNil(mediaRelationship?.links)
+    
+    XCTAssertNil(mediaRelationshipAttributes)
   }
 }
 

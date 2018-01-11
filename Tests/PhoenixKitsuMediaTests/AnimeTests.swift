@@ -380,9 +380,9 @@ class AnimeTests: XCTestCase {
     XCTAssertEqual(animeAttributes?.updatedAt, "2018-01-07T18:00:14.142Z")
     XCTAssertEqual(animeAttributes?.slug, "yurumates")
     XCTAssertEqual(animeAttributes?.synopsis, "testSynopsis")
-
+    
     XCTAssertNotNil(animeAttributes?.titles)
-
+    
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertEqual((animeAttributes?.abbreviatedTitles)!, ["test"])
     XCTAssertEqual(animeAttributes?.averageRating, "67.0")
@@ -398,11 +398,11 @@ class AnimeTests: XCTestCase {
     XCTAssertEqual(animeAttributes?.subtype, AnimeTypeEnum.OVA)
     XCTAssertEqual(animeAttributes?.status, ReleaseStatusEnum.finished)
     XCTAssertEqual(animeAttributes?.toBeAnnounced, "winter 2020")
-
+    
     XCTAssertNotNil(animeAttributes?.posterImage)
-
+    
     XCTAssertNotNil(animeAttributes?.coverImage)
-
+    
     XCTAssertEqual(animeAttributes?.episodeCount, 1)
     XCTAssertEqual(animeAttributes?.episodeLength, 37)
     XCTAssertEqual(animeAttributes?.youtubeVideoID, "youtubeq1w2")
@@ -433,9 +433,9 @@ class AnimeTests: XCTestCase {
     XCTAssertEqual(animeAttributes?.updatedAt, "2018-01-07T18:00:14.142Z")
     XCTAssertNil(animeAttributes?.slug)
     XCTAssertEqual(animeAttributes?.synopsis, "testSynopsis")
-
+    
     XCTAssertNotNil(animeAttributes?.titles)
-
+    
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertNil(animeAttributes?.abbreviatedTitles)
     XCTAssertNil(animeAttributes?.averageRating)
@@ -474,7 +474,7 @@ class AnimeTests: XCTestCase {
     
     XCTAssertEqual(anime?.objectID, "4")
     XCTAssertEqual(anime?.type, "anime")
-
+    
     XCTAssertNotNil(anime?.links)
     
     XCTAssertNotNil(animeAttributes)
@@ -483,9 +483,9 @@ class AnimeTests: XCTestCase {
     XCTAssertEqual(animeAttributes?.updatedAt, "2018-01-07T18:00:14.142Z")
     XCTAssertNil(animeAttributes?.slug)
     XCTAssertEqual(animeAttributes?.synopsis, "testSynopsis")
-
+    
     XCTAssertNotNil(animeAttributes?.titles)
-
+    
     XCTAssertEqual(animeAttributes?.canonicalTitle, "Yurumates")
     XCTAssertNil(animeAttributes?.abbreviatedTitles)
     XCTAssertNil(animeAttributes?.averageRating)
@@ -518,8 +518,16 @@ class AnimeTests: XCTestCase {
     } else {
       anime = nil
     }
+    animeAttributes = anime?.attributes
     
-    XCTAssertNil(anime)
+    XCTAssertNotNil(anime)
+    
+    XCTAssertEqual(anime?.objectID, "4")
+    XCTAssertEqual(anime?.type, "anime")
+    
+    XCTAssertNotNil(anime?.links)
+    
+    XCTAssertNil(animeAttributes)
   }
   
   func testAnimeInvalidNilData() {
@@ -531,8 +539,16 @@ class AnimeTests: XCTestCase {
     } else {
       anime = nil
     }
+    animeAttributes = anime?.attributes
     
-    XCTAssertNil(anime)
+    XCTAssertNotNil(anime)
+    
+    XCTAssertEqual(anime?.objectID, "4")
+    XCTAssertEqual(anime?.type, "anime")
+    
+    XCTAssertNotNil(anime?.links)
+    
+    XCTAssertNil(animeAttributes)
   }
 }
 

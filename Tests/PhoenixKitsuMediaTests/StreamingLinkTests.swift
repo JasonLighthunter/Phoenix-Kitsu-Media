@@ -196,7 +196,14 @@ class StreamingLinkTests: XCTestCase {
     }
     streamingLinkAttributes = streamingLink?.attributes
     
-    XCTAssertNil(streamingLink)
+    XCTAssertNotNil(streamingLink)
+    
+    XCTAssertEqual(streamingLink?.objectID, "6")
+    XCTAssertEqual(streamingLink?.type, "streamingLinks")
+    
+    XCTAssertNotNil(streamingLink?.links)
+    
+    XCTAssertNil(streamingLinkAttributes)
   }
   
   func testStreamingLinkInvalidNilData() {
@@ -208,7 +215,15 @@ class StreamingLinkTests: XCTestCase {
     } else {
       streamingLink = nil
     }
+    streamingLinkAttributes = streamingLink?.attributes
     
-    XCTAssertNil(streamingLink)
+    XCTAssertNotNil(streamingLink)
+    
+    XCTAssertEqual(streamingLink?.objectID, "6")
+    XCTAssertEqual(streamingLink?.type, "streamingLinks")
+    
+    XCTAssertNotNil(streamingLink?.links)
+    
+    XCTAssertNil(streamingLinkAttributes)
   }
 }

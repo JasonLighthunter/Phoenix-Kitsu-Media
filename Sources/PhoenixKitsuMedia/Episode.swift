@@ -1,20 +1,8 @@
 import PhoenixKitsuCore
 import Requestable
 
-public class Episode: KitsuObject, Requestable {
+public class Episode: KitsuObject<EpisodeAttributes>, Requestable {
   public static var requestURLString = "episodes"
-  
-  public let attributes: EpisodeAttributes?
-  
-  private enum CodingKeys: String, CodingKey {
-    case attributes
-  }
-  
-  public required init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    attributes = try? container.decode(EpisodeAttributes.self, forKey: .attributes)
-    try super.init(from: decoder)
-  }
 }
 
 public class EpisodeAttributes: KitsuObjectAttributesWithTimestamp {

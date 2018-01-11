@@ -156,7 +156,14 @@ class CategoryFavoriteTests: XCTestCase {
     }
     categoryFavoriteAttributes = categoryFavorite?.attributes
     
-    XCTAssertNil(categoryFavorite)
+    XCTAssertNotNil(categoryFavorite)
+    
+    XCTAssertEqual(categoryFavorite?.objectID, "6")
+    XCTAssertEqual(categoryFavorite?.type, "categoryFavorites")
+    
+    XCTAssertNotNil(categoryFavorite?.links)
+    
+    XCTAssertNil(categoryFavoriteAttributes)
   }
   
   func testCategoryFavoriteInvalidNilData() {
@@ -168,7 +175,15 @@ class CategoryFavoriteTests: XCTestCase {
     } else {
       categoryFavorite = nil
     }
+    categoryFavoriteAttributes = categoryFavorite?.attributes
     
-    XCTAssertNil(categoryFavorite)
+    XCTAssertNotNil(categoryFavorite)
+    
+    XCTAssertEqual(categoryFavorite?.objectID, "6")
+    XCTAssertEqual(categoryFavorite?.type, "categoryFavorites")
+    
+    XCTAssertNotNil(categoryFavorite?.links)
+    
+    XCTAssertNil(categoryFavoriteAttributes)
   }
 }

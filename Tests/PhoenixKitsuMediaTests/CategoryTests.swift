@@ -288,7 +288,14 @@ class CategoryTests: XCTestCase {
     }
     categoryAttributes = category?.attributes
     
-    XCTAssertNil(category)
+    XCTAssertNotNil(category)
+    
+    XCTAssertEqual(category?.objectID, "6")
+    XCTAssertEqual(category?.type, "categories")
+    
+    XCTAssertNotNil(category?.links)
+    
+    XCTAssertNil(categoryAttributes)
   }
   
   func testCategoryInvalidNilData() {
@@ -300,8 +307,16 @@ class CategoryTests: XCTestCase {
     } else {
       category = nil
     }
+    categoryAttributes = category?.attributes
     
-    XCTAssertNil(category)
+    XCTAssertNotNil(category)
+    
+    XCTAssertEqual(category?.objectID, "6")
+    XCTAssertEqual(category?.type, "categories")
+    
+    XCTAssertNotNil(category?.links)
+    
+    XCTAssertNil(categoryAttributes)
   }
 }
 

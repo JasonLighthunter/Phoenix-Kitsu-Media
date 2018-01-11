@@ -1,20 +1,8 @@
 import PhoenixKitsuCore
 import Requestable
 
-public class Category: KitsuObject, Requestable {
+public class Category: KitsuObject<CategoryAttributes>, Requestable {
   public static var requestURLString = "categories"
-  
-  public let attributes: CategoryAttributes?
-  
-  private enum CodingKeys: String, CodingKey {
-    case attributes
-  }
-  
-  public required init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    attributes = try? container.decode(CategoryAttributes.self, forKey: .attributes)
-    try super.init(from: decoder)
-  }
 }
 
 public class CategoryAttributes: KitsuObjectAttributesWithTimestamp {
