@@ -1,16 +1,17 @@
 import PhoenixKitsuCore
 
-public protocol HasMediaAttributes: Decodable {
+public protocol HasMediaObjectAttributes: Decodable {
   associatedtype KitsuMediaObjectAttributesType: KitsuMediaObjectAttributes
   
   var attributes: KitsuMediaObjectAttributesType? {get}
   func getTitleWith(identifier: TitleLanguageIdentifierEnum) -> String
 }
 
-extension HasMediaAttributes {
+public class KitsuMediaObject<T : KitsuMediaObjectAttributes>: KitsuObject<T>,
+HasMediaObjectAttributes {
   public func getTitleWith(identifier: TitleLanguageIdentifierEnum) -> String {
     var title: String? = ""
-
+    
     switch identifier {
     case .americanEnglish:
       title = attributes?.titles.americanEnglish
@@ -23,7 +24,7 @@ extension HasMediaAttributes {
     case .canonical:
       title = attributes?.canonicalTitle
     }
-
+    
     guard let returnValue = title else {
       guard let returnValue = attributes?.canonicalTitle else { return (self.attributes?.slug)! }
       return returnValue
@@ -32,4 +33,3 @@ extension HasMediaAttributes {
   }
 }
 
-public class KitsuMediaObject<T: KitsuMediaObjectAttributes>: KitsuObject<T> {}
