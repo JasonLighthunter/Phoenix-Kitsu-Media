@@ -1,6 +1,6 @@
 import PhoenixKitsuCore
 
-public protocol HasMediaObjectAttributes: Decodable {
+public protocol HasMediaObjectAttributes: HasKitsuObjectAttributes {
   associatedtype KitsuMediaObjectAttributesType: KitsuMediaObjectAttributes
   
   var attributes: KitsuMediaObjectAttributesType? {get}
