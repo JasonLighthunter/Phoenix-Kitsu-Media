@@ -10,7 +10,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/JasonLighthunter/Requestable.git", from: "1.0.0"),
-    .package(url: "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git", .branch("setup"))
+    .package(url: "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git", .branch("feature/AuthorizedRequest"))
   ],
   targets: [
     .target(name: "PhoenixKitsuMedia", dependencies: ["Requestable", "PhoenixKitsuCore"]),
