@@ -14,7 +14,7 @@ public class AnimeAttributes: KitsuMediaObjectAttributes {
   public let canonicalTitle: String
   public let abbreviatedTitles: [String]?
   public let averageRating: String?
-  public let ratingFrequencies: [String : String]
+  public let ratingFrequencies: [String: String]
   public let userCount: Int
   public let favoritesCount: Int
   public let startDate: String?
@@ -32,7 +32,7 @@ public class AnimeAttributes: KitsuMediaObjectAttributes {
   public let episodeLength: Int?
   public let youtubeVideoID: String?
   public let isNSFW: Bool
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt
@@ -62,4 +62,3 @@ public class AnimeAttributes: KitsuMediaObjectAttributes {
     case isNSFW = "nsfw"
   }
 }
-

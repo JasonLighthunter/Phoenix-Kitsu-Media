@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "PhoenixKitsuCore",
-        "repositoryURL": "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git",
-        "state": {
-          "branch": "feature/AuthorizedRequest",
-          "revision": "731ce69340dc7123a8fa78f3469dca193a92ac31",
-          "version": null
-        }
-      },
-      {
         "package": "Requestable",
         "repositoryURL": "https://github.com/JasonLighthunter/Requestable.git",
         "state": {
           "branch": null,
-          "revision": "b8691cc0836c767c7ab534e7ef9e994892b94392",
-          "version": "1.0.0"
+          "revision": "27401203c102fb34ab3eb2e997b59c849a563669",
+          "version": "1.0.2"
         }
       }
     ]

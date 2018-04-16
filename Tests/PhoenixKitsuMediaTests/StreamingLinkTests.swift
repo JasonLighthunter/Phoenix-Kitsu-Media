@@ -3,8 +3,8 @@ import XCTest
 
 class StreamingLinkTests: XCTestCase {
   let decoder = JSONDecoder()
-  
-  let fullyFilledJSON: [String : Any] = [
+
+  let fullyFilledJSON: [String: Any] = [
     "id": "6",
     "type": "streamingLinks",
     "links": [
@@ -22,8 +22,8 @@ class StreamingLinkTests: XCTestCase {
       ]
     ]
   ]
-  
-  let validMissingDataJSON: [String : Any] = [
+
+  let validMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "streamingLinks",
     "links": [
@@ -39,8 +39,8 @@ class StreamingLinkTests: XCTestCase {
       ]
     ]
   ]
-  
-  let validNilDataJSON: [String : Any?] = [
+
+  let validNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "streamingLinks",
     "links": [
@@ -58,8 +58,8 @@ class StreamingLinkTests: XCTestCase {
       ]
     ]
   ]
-  
-  let invalidMissingDataJSON: [String : Any] = [
+
+  let invalidMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "streamingLinks",
     "links": [
@@ -74,8 +74,8 @@ class StreamingLinkTests: XCTestCase {
       ]
     ]
   ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
+
+  let invalidNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "streamingLinks",
     "links": [
@@ -93,20 +93,20 @@ class StreamingLinkTests: XCTestCase {
       ]
     ]
   ]
-  
+
   var streamingLink: StreamingLink?
   var streamingLinkAttributes: StreamingLinkAttributes?
-  
+
   override func tearDown() {
     streamingLink = nil
     streamingLinkAttributes = nil
-    
+
     super.tearDown()
   }
-  
+
   func testStreamingLinkFullyFilled() {
     let json = fullyFilledJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       streamingLink = try? decoder.decode(StreamingLink.self, from: data!)
@@ -114,26 +114,26 @@ class StreamingLinkTests: XCTestCase {
       streamingLink = nil
     }
     streamingLinkAttributes = streamingLink?.attributes
-    
+
     XCTAssertNotNil(streamingLink)
-    
+
     XCTAssertEqual(streamingLink?.objectID, "6")
     XCTAssertEqual(streamingLink?.type, "streamingLinks")
-    
+
     XCTAssertNotNil(streamingLink?.links)
-    
+
     XCTAssertNotNil(streamingLinkAttributes)
-    
+
     XCTAssertEqual(streamingLinkAttributes?.createdAt, "2017-05-31T06:38:29.320Z")
     XCTAssertEqual(streamingLinkAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(streamingLinkAttributes?.url, "http://example.com")
     XCTAssertEqual((streamingLinkAttributes?.subs)!, ["en"])
     XCTAssertEqual((streamingLinkAttributes?.dubs)!, ["ja"])
   }
-  
+
   func testStreamingLinkValidMissingData() {
     let json = validMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       streamingLink = try? decoder.decode(StreamingLink.self, from: data!)
@@ -141,26 +141,26 @@ class StreamingLinkTests: XCTestCase {
       streamingLink = nil
     }
     streamingLinkAttributes = streamingLink?.attributes
-    
+
     XCTAssertNotNil(streamingLink)
-    
+
     XCTAssertEqual(streamingLink?.objectID, "6")
     XCTAssertEqual(streamingLink?.type, "streamingLinks")
-    
+
     XCTAssertNotNil(streamingLink?.links)
-    
+
     XCTAssertNotNil(streamingLinkAttributes)
-    
+
     XCTAssertNil(streamingLinkAttributes?.createdAt)
     XCTAssertNil(streamingLinkAttributes?.updatedAt)
     XCTAssertEqual(streamingLinkAttributes?.url, "http://example.com")
     XCTAssertEqual((streamingLinkAttributes?.subs)!, ["en"])
     XCTAssertEqual((streamingLinkAttributes?.dubs)!, ["ja"])
   }
-  
+
   func testStreamingLinkValidNilData() {
     let json = validNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       streamingLink = try? decoder.decode(StreamingLink.self, from: data!)
@@ -168,26 +168,26 @@ class StreamingLinkTests: XCTestCase {
       streamingLink = nil
     }
     streamingLinkAttributes = streamingLink?.attributes
-    
+
     XCTAssertNotNil(streamingLink)
-    
+
     XCTAssertEqual(streamingLink?.objectID, "6")
     XCTAssertEqual(streamingLink?.type, "streamingLinks")
-    
+
     XCTAssertNotNil(streamingLink?.links)
-    
+
     XCTAssertNotNil(streamingLinkAttributes)
-    
+
     XCTAssertNil(streamingLinkAttributes?.createdAt)
     XCTAssertNil(streamingLinkAttributes?.updatedAt)
     XCTAssertEqual(streamingLinkAttributes?.url, "http://example.com")
     XCTAssertEqual((streamingLinkAttributes?.subs)!, ["en"])
     XCTAssertEqual((streamingLinkAttributes?.dubs)!, ["ja"])
   }
-  
+
   func testStreamingLinkInvalidMissingData() {
     let json = invalidMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       streamingLink = try? decoder.decode(StreamingLink.self, from: data!)
@@ -195,20 +195,20 @@ class StreamingLinkTests: XCTestCase {
       streamingLink = nil
     }
     streamingLinkAttributes = streamingLink?.attributes
-    
+
     XCTAssertNotNil(streamingLink)
-    
+
     XCTAssertEqual(streamingLink?.objectID, "6")
     XCTAssertEqual(streamingLink?.type, "streamingLinks")
-    
+
     XCTAssertNotNil(streamingLink?.links)
-    
+
     XCTAssertNil(streamingLinkAttributes)
   }
-  
+
   func testStreamingLinkInvalidNilData() {
     let json = invalidNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       streamingLink = try? decoder.decode(StreamingLink.self, from: data!)
@@ -216,14 +216,14 @@ class StreamingLinkTests: XCTestCase {
       streamingLink = nil
     }
     streamingLinkAttributes = streamingLink?.attributes
-    
+
     XCTAssertNotNil(streamingLink)
-    
+
     XCTAssertEqual(streamingLink?.objectID, "6")
     XCTAssertEqual(streamingLink?.type, "streamingLinks")
-    
+
     XCTAssertNotNil(streamingLink?.links)
-    
+
     XCTAssertNil(streamingLinkAttributes)
   }
 }

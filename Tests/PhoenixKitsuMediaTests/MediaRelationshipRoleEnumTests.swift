@@ -7,8 +7,10 @@ class MediaRelationshipRoleEnumTests: XCTestCase {
                    MediaRelationshipRoleEnum.sequel)
     XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "prequel"),
                    MediaRelationshipRoleEnum.prequel)
-    XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "alternative_setting"), MediaRelationshipRoleEnum.alternativeSetting)
-    XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "alternative_version"), MediaRelationshipRoleEnum.alternativeVersion)
+    XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "alternative_setting"),
+                   MediaRelationshipRoleEnum.alternativeSetting)
+    XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "alternative_version"),
+                   MediaRelationshipRoleEnum.alternativeVersion)
     XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "side_story"),
                    MediaRelationshipRoleEnum.sideStory)
     XCTAssertEqual(MediaRelationshipRoleEnum(rawValue: "parent_story"),

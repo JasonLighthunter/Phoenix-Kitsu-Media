@@ -9,7 +9,7 @@ let package = Package(
     .library(name: "PhoenixKitsuMedia", targets: ["PhoenixKitsuMedia"])
   ],
   dependencies: [
-    .package(url: "https://github.com/JasonLighthunter/Requestable.git", from: "1.0.0"),
+    .package(url: "https://github.com/JasonLighthunter/Requestable.git", from: "1.0.2"),
     .package(url: "https://github.com/JasonLighthunter/Phoenix-Kitsu-Core.git", .branch("feature/AuthorizedRequest"))
   ],
   targets: [

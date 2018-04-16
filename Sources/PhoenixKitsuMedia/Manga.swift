@@ -14,7 +14,7 @@ public class MangaAttributes: KitsuMediaObjectAttributes {
   public let canonicalTitle: String
   public let abbreviatedTitles: [String]?
   public let averageRating: String?
-  public let ratingFrequencies: [String : String]
+  public let ratingFrequencies: [String: String]
   public let userCount: Int
   public let favoritesCount: Int
   public let startDate: String?
@@ -31,7 +31,7 @@ public class MangaAttributes: KitsuMediaObjectAttributes {
   public let chapterCount: Int?
   public let volumeCount: Int?
   public let serialization: String?
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt

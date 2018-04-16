@@ -3,8 +3,8 @@ import XCTest
 
 class CategoryTests: XCTestCase {
   let decoder = JSONDecoder()
-  
-  let fullyFilledJSON: [String : Any] = [
+
+  let fullyFilledJSON: [String: Any] = [
     "id": "6",
     "type": "categories",
     "links": [
@@ -21,25 +21,10 @@ class CategoryTests: XCTestCase {
       "childCount": 0,
       "image": [
         "tiny": "https://media.kitsu.io/categories/images/6/tiny.jpg?1496212709",
-        "small": "https://media.kitsu.io/categories/images/6/small.jpg?1496212709",
-        "medium": "https://media.kitsu.io/categories/images/6/medium.jpg?1496212709",
-        "large": "https://media.kitsu.io/categories/images/6/large.jpg?1496212709",
         "original": "https://media.kitsu.io/categories/images/6/original.jpg?1496212709",
         "meta": [
           "dimensions": [
             "tiny": [
-              "width": nil,
-              "height": nil
-            ],
-            "small": [
-              "width": nil,
-              "height": nil
-            ],
-            "medium": [
-              "width": nil,
-              "height": nil
-            ],
-            "large": [
               "width": nil,
               "height": nil
             ]
@@ -48,8 +33,8 @@ class CategoryTests: XCTestCase {
       ]
     ]
   ]
-  
-  let validMissingDataJSON: [String : Any] = [
+
+  let validMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "categories",
     "links": [
@@ -64,8 +49,8 @@ class CategoryTests: XCTestCase {
       "childCount": 0
     ]
   ]
-  
-  let validNilDataJSON: [String : Any?] = [
+
+  let validNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "categories",
     "links": [
@@ -83,8 +68,8 @@ class CategoryTests: XCTestCase {
       "image": nil
     ]
   ]
-  
-  let invalidMissingDataJSON: [String : Any] = [
+
+  let invalidMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "categories",
     "links": [
@@ -100,25 +85,10 @@ class CategoryTests: XCTestCase {
       "childCount": 0,
       "image": [
         "tiny": "https://media.kitsu.io/categories/images/6/tiny.jpg?1496212709",
-        "small": "https://media.kitsu.io/categories/images/6/small.jpg?1496212709",
-        "medium": "https://media.kitsu.io/categories/images/6/medium.jpg?1496212709",
-        "large": "https://media.kitsu.io/categories/images/6/large.jpg?1496212709",
         "original": "https://media.kitsu.io/categories/images/6/original.jpg?1496212709",
         "meta": [
           "dimensions": [
             "tiny": [
-              "width": nil,
-              "height": nil
-            ],
-            "small": [
-              "width": nil,
-              "height": nil
-            ],
-            "medium": [
-              "width": nil,
-              "height": nil
-            ],
-            "large": [
               "width": nil,
               "height": nil
             ]
@@ -127,8 +97,8 @@ class CategoryTests: XCTestCase {
       ]
     ]
   ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
+
+  let invalidNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "categories",
     "links": [
@@ -145,25 +115,10 @@ class CategoryTests: XCTestCase {
       "childCount": 0,
       "image": [
         "tiny": "https://media.kitsu.io/categories/images/6/tiny.jpg?1496212709",
-        "small": "https://media.kitsu.io/categories/images/6/small.jpg?1496212709",
-        "medium": "https://media.kitsu.io/categories/images/6/medium.jpg?1496212709",
-        "large": "https://media.kitsu.io/categories/images/6/large.jpg?1496212709",
         "original": "https://media.kitsu.io/categories/images/6/original.jpg?1496212709",
         "meta": [
           "dimensions": [
             "tiny": [
-              "width": nil,
-              "height": nil
-            ],
-            "small": [
-              "width": nil,
-              "height": nil
-            ],
-            "medium": [
-              "width": nil,
-              "height": nil
-            ],
-            "large": [
               "width": nil,
               "height": nil
             ]
@@ -172,20 +127,20 @@ class CategoryTests: XCTestCase {
       ]
     ]
   ]
-  
+
   var category: PhoenixKitsuMedia.Category?
   var categoryAttributes: CategoryAttributes?
-  
+
   override func tearDown() {
     category = nil
     categoryAttributes = nil
-    
+
     super.tearDown()
   }
-  
+
   func testCategoryFullyFilled() {
     let json = fullyFilledJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       category = try? decoder.decode(Category.self, from: data!)
@@ -193,16 +148,13 @@ class CategoryTests: XCTestCase {
       category = nil
     }
     categoryAttributes = category?.attributes
-    
+
     XCTAssertNotNil(category)
-    
     XCTAssertEqual(category?.objectID, "6")
     XCTAssertEqual(category?.type, "categories")
-    
     XCTAssertNotNil(category?.links)
-    
+
     XCTAssertNotNil(categoryAttributes)
-    
     XCTAssertEqual(categoryAttributes?.createdAt, "2017-05-31T06:38:29.320Z")
     XCTAssertEqual(categoryAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(categoryAttributes?.title, "All Girls School")
@@ -211,13 +163,12 @@ class CategoryTests: XCTestCase {
     XCTAssertEqual(categoryAttributes?.slug, "all-girls-school")
     XCTAssertFalse((categoryAttributes?.isNSFW)!)
     XCTAssertEqual(categoryAttributes?.childCount, 0)
-    
     XCTAssertNotNil(categoryAttributes?.image)
   }
-  
+
   func testCategoryValidMissingData() {
     let json = validMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       category = try? decoder.decode(Category.self, from: data!)
@@ -225,16 +176,13 @@ class CategoryTests: XCTestCase {
       category = nil
     }
     categoryAttributes = category?.attributes
-    
+
     XCTAssertNotNil(category)
-    
     XCTAssertEqual(category?.objectID, "6")
     XCTAssertEqual(category?.type, "categories")
-    
     XCTAssertNotNil(category?.links)
-    
+
     XCTAssertNotNil(categoryAttributes)
-    
     XCTAssertEqual(categoryAttributes?.createdAt, "2017-05-31T06:38:29.320Z")
     XCTAssertEqual(categoryAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(categoryAttributes?.title, "All Girls School")
@@ -245,10 +193,10 @@ class CategoryTests: XCTestCase {
     XCTAssertEqual(categoryAttributes?.childCount, 0)
     XCTAssertNil(categoryAttributes?.image)
   }
-  
+
   func testCategoryValidNilData() {
     let json = validNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       category = try? decoder.decode(Category.self, from: data!)
@@ -256,16 +204,13 @@ class CategoryTests: XCTestCase {
       category = nil
     }
     categoryAttributes = category?.attributes
-    
+
     XCTAssertNotNil(category)
-    
     XCTAssertEqual(category?.objectID, "6")
     XCTAssertEqual(category?.type, "categories")
-    
     XCTAssertNotNil(category?.links)
-    
+
     XCTAssertNotNil(categoryAttributes)
-    
     XCTAssertEqual(categoryAttributes?.createdAt, "2017-05-31T06:38:29.320Z")
     XCTAssertEqual(categoryAttributes?.updatedAt, "2017-05-31T06:39:36.788Z")
     XCTAssertEqual(categoryAttributes?.title, "All Girls School")
@@ -276,10 +221,10 @@ class CategoryTests: XCTestCase {
     XCTAssertEqual(categoryAttributes?.childCount, 0)
     XCTAssertNil(categoryAttributes?.image)
   }
-  
+
   func testCategoryInvalidMissingData() {
     let json = invalidMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       category = try? decoder.decode(Category.self, from: data!)
@@ -287,20 +232,18 @@ class CategoryTests: XCTestCase {
       category = nil
     }
     categoryAttributes = category?.attributes
-    
+
     XCTAssertNotNil(category)
-    
     XCTAssertEqual(category?.objectID, "6")
     XCTAssertEqual(category?.type, "categories")
-    
     XCTAssertNotNil(category?.links)
-    
+
     XCTAssertNil(categoryAttributes)
   }
-  
+
   func testCategoryInvalidNilData() {
     let json = invalidNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       category = try? decoder.decode(Category.self, from: data!)
@@ -308,16 +251,12 @@ class CategoryTests: XCTestCase {
       category = nil
     }
     categoryAttributes = category?.attributes
-    
+
     XCTAssertNotNil(category)
-    
     XCTAssertEqual(category?.objectID, "6")
     XCTAssertEqual(category?.type, "categories")
-    
     XCTAssertNotNil(category?.links)
-    
+
     XCTAssertNil(categoryAttributes)
   }
 }
-
-

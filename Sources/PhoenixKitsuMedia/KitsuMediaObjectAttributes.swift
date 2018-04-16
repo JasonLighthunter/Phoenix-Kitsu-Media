@@ -7,7 +7,7 @@ public protocol KitsuMediaObjectAttributes: KitsuObjectAttributesWithTimestamp {
   var canonicalTitle: String {get}
   var abbreviatedTitles: [String]? {get}
   var averageRating: String? {get}
-  var ratingFrequencies: [String : String] {get}
+  var ratingFrequencies: [String: String] {get}
   var userCount: Int {get}
   var favoritesCount: Int {get}
   var startDate: String? {get}

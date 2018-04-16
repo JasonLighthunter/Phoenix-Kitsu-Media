@@ -3,8 +3,8 @@ import XCTest
 
 class EpisodeTests: XCTestCase {
   let decoder = JSONDecoder()
-  
-  let fullyFilledJSON: [String : Any] = [
+
+  let fullyFilledJSON: [String: Any] = [
     "id": "6",
     "type": "episodes",
     "links": [
@@ -31,8 +31,8 @@ class EpisodeTests: XCTestCase {
       ]
     ]
   ]
-  
-  let validMissingDataJSON: [String : Any] = [
+
+  let validMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "episodes",
     "links": [
@@ -47,8 +47,8 @@ class EpisodeTests: XCTestCase {
       "canonicalTitle": "Episode 5"
     ]
   ]
-  
-  let validNilDataJSON: [String : Any?] = [
+
+  let validNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "episodes",
     "links": [
@@ -70,8 +70,8 @@ class EpisodeTests: XCTestCase {
       "thumbnail": nil
     ]
   ]
-  
-  let invalidMissingDataJSON: [String : Any] = [
+
+  let invalidMissingDataJSON: [String: Any] = [
     "id": "6",
     "type": "episodes",
     "links": [
@@ -97,8 +97,8 @@ class EpisodeTests: XCTestCase {
       ]
     ]
   ]
-  
-  let invalidNilDataJSON: [String : Any?] = [
+
+  let invalidNilDataJSON: [String: Any?] = [
     "id": "6",
     "type": "episodes",
     "links": [
@@ -125,20 +125,20 @@ class EpisodeTests: XCTestCase {
       ]
     ]
   ]
-  
+
   var episode: Episode?
   var episodeAttributes: EpisodeAttributes?
-  
+
   override func tearDown() {
     episode = nil
     episodeAttributes = nil
-    
+
     super.tearDown()
   }
-  
+
   func testEpisodeFullyFilled() {
     let json = fullyFilledJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       episode = try? decoder.decode(Episode.self, from: data!)
@@ -146,21 +146,21 @@ class EpisodeTests: XCTestCase {
       episode = nil
     }
     episodeAttributes = episode?.attributes
-    
+
     XCTAssertNotNil(episode)
-    
+
     XCTAssertEqual(episode?.objectID, "6")
     XCTAssertEqual(episode?.type, "episodes")
-    
+
     XCTAssertNotNil(episode?.links)
-    
+
     XCTAssertNotNil(episodeAttributes)
-    
+
     XCTAssertEqual(episodeAttributes?.createdAt, "2017-06-30T16:07:59.760Z")
     XCTAssertEqual(episodeAttributes?.updatedAt, "2017-06-30T16:07:59.760Z")
-    
+
     XCTAssertNotNil(episodeAttributes?.titles)
-    
+
     XCTAssertEqual(episodeAttributes?.canonicalTitle, "Episode 5")
     XCTAssertEqual(episodeAttributes?.seasonNumber, 1)
     XCTAssertEqual(episodeAttributes?.number, 5)
@@ -168,13 +168,13 @@ class EpisodeTests: XCTestCase {
     XCTAssertEqual(episodeAttributes?.synopsis, "testSynopsis")
     XCTAssertEqual(episodeAttributes?.airdate, "2018-01-23")
     XCTAssertEqual(episodeAttributes?.length, 45)
-    
+
     XCTAssertNotNil(episodeAttributes?.thumbnail)
   }
-  
+
   func testEpisodeValidMissingData() {
     let json = validMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       episode = try? decoder.decode(Episode.self, from: data!)
@@ -182,21 +182,21 @@ class EpisodeTests: XCTestCase {
       episode = nil
     }
     episodeAttributes = episode?.attributes
-    
+
     XCTAssertNotNil(episode)
-    
+
     XCTAssertEqual(episode?.objectID, "6")
     XCTAssertEqual(episode?.type, "episodes")
-    
+
     XCTAssertNotNil(episode?.links)
-    
+
     XCTAssertNotNil(episodeAttributes)
-    
+
     XCTAssertEqual(episodeAttributes?.createdAt, "2017-06-30T16:07:59.760Z")
     XCTAssertEqual(episodeAttributes?.updatedAt, "2017-06-30T16:07:59.760Z")
-    
+
     XCTAssertNotNil(episodeAttributes?.titles)
-    
+
     XCTAssertEqual(episodeAttributes?.canonicalTitle, "Episode 5")
     XCTAssertNil(episodeAttributes?.seasonNumber)
     XCTAssertNil(episodeAttributes?.number)
@@ -206,10 +206,10 @@ class EpisodeTests: XCTestCase {
     XCTAssertNil(episodeAttributes?.length)
     XCTAssertNil(episodeAttributes?.thumbnail)
   }
-  
+
   func testEpisodeValidNilData() {
     let json = validNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       episode = try? decoder.decode(Episode.self, from: data!)
@@ -217,21 +217,21 @@ class EpisodeTests: XCTestCase {
       episode = nil
     }
     episodeAttributes = episode?.attributes
-    
+
     XCTAssertNotNil(episode)
-    
+
     XCTAssertEqual(episode?.objectID, "6")
     XCTAssertEqual(episode?.type, "episodes")
-    
+
     XCTAssertNotNil(episode?.links)
-    
+
     XCTAssertNotNil(episodeAttributes)
-    
+
     XCTAssertEqual(episodeAttributes?.createdAt, "2017-06-30T16:07:59.760Z")
     XCTAssertEqual(episodeAttributes?.updatedAt, "2017-06-30T16:07:59.760Z")
-    
+
     XCTAssertNotNil(episodeAttributes?.titles)
-    
+
     XCTAssertEqual(episodeAttributes?.canonicalTitle, "Episode 5")
     XCTAssertNil(episodeAttributes?.seasonNumber)
     XCTAssertNil(episodeAttributes?.number)
@@ -241,10 +241,10 @@ class EpisodeTests: XCTestCase {
     XCTAssertNil(episodeAttributes?.length)
     XCTAssertNil(episodeAttributes?.thumbnail)
   }
-  
+
   func testEpisodeInvalidMissingData() {
     let json = invalidMissingDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       episode = try? decoder.decode(Episode.self, from: data!)
@@ -252,20 +252,20 @@ class EpisodeTests: XCTestCase {
       episode = nil
     }
     episodeAttributes = episode?.attributes
-    
+
     XCTAssertNotNil(episode)
-    
+
     XCTAssertEqual(episode?.objectID, "6")
     XCTAssertEqual(episode?.type, "episodes")
-    
+
     XCTAssertNotNil(episode?.links)
-    
+
     XCTAssertNil(episodeAttributes)
   }
-  
+
   func testEpisodeInvalidNilData() {
     let json = invalidNilDataJSON
-    
+
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
       episode = try? decoder.decode(Episode.self, from: data!)
@@ -273,16 +273,14 @@ class EpisodeTests: XCTestCase {
       episode = nil
     }
     episodeAttributes = episode?.attributes
-    
+
     XCTAssertNotNil(episode)
-    
+
     XCTAssertEqual(episode?.objectID, "6")
     XCTAssertEqual(episode?.type, "episodes")
-    
+
     XCTAssertNotNil(episode?.links)
-    
+
     XCTAssertNil(episodeAttributes)
   }
 }
-
-

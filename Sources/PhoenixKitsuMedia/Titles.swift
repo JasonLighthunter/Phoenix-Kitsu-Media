@@ -1,4 +1,4 @@
-public class Titles: Decodable {
+public struct Titles: Decodable {
   public let americanEnglish: String?
   public let english: String?
   public let romaji: String?

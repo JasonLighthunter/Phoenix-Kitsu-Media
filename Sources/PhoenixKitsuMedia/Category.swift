@@ -15,7 +15,7 @@ public class CategoryAttributes: KitsuObjectAttributesWithTimestamp {
   public let isNSFW: Bool
   public let childCount: Int
   public let image: Image?
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt

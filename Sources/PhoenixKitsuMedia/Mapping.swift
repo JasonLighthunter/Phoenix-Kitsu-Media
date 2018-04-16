@@ -10,7 +10,7 @@ public class MappingAttributes: KitsuObjectAttributes {
   public let updatedAt: String?
   public let externalSite: ExternalSiteEnum
   public let externalID: String
-  
+
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt
